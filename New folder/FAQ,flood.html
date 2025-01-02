@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLOOD</title>
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            background: url('img/rsz_1new.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .title {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: underline 4px;
+        }
+
+        .language-switcher {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .language-switcher button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .language-switcher button:hover {
+            background-color: #555;
+        }
+
+        .questions-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .question button {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            border: none;
+            outline: none;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .question p {
+            font-size: 22px;
+            max-height: 0;
+            opacity: 0;
+            line-height: 1.5;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .d-arrow {
+            transition: transform 0.5s ease-in;
+            color: #fff;
+        }
+
+        /* Add this class when clicked */
+        .question p.show {
+            max-height: 500px; /* Allow for larger content */
+            opacity: 1;
+            padding: 15px;
+        }
+
+        .question button .d-arrow.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 class="title">CYCLONE</h1>
+
+        <div class="language-switcher">
+            <button id="english">English</button>
+            <button id="bangla">বাংলা</button>
+        </div>
+
+        <div class="questions-container">
+            <div class="question" data-year="2024">
+                <button>
+                    <span>2024(২০২৪)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">June 2024: Prolonged heavy rains on June 18–19 led to flash floods and landslides, affecting at least 2.1 million people. Approximately 75% of Sylhet District was submerged, impacting over 825,000 individuals. UNICEF reported that 772,000 children were affected by these flash floods.</p>
+                <p data-lang="en">August 2024: Heavy rainfall and upstream water from Indian dams caused flash floods starting August 21. By August 31, over 50 fatalities were reported, with approximately 5.8 million people affected across 11 districts in northeastern and southeastern Bangladesh.Total deaths 71. The floods destroyed 92,000 hectares of farmland, with losses estimated at 1,144 crore taka. </p>
+                <p data-lang="bn" style="display: none;">জুন ২০২৪:১৮-১৯ জুন টানা ভারী বৃষ্টির ফলে আকস্মিক বন্যা এবং ভূমিধস ঘটে, যা কমপক্ষে ২১ লাখ মানুষকে প্রভাবিত করে। সিলেট জেলার প্রায় ৭৫% এলাকা পানির নিচে তলিয়ে যায়, এতে ৮ লাখ ২৫ হাজারেরও বেশি মানুষ ক্ষতিগ্রস্ত হয়। ইউনিসেফ জানায়, এই আকস্মিক বন্যায় ৭ লাখ ৭২ হাজার শিশু প্রভাবিত হয়েছে।</p>
+                <p data-lang="bn" style="display: none;">আগস্ট ২০২৪:ভারী বৃষ্টি এবং ভারতের বাঁধ থেকে আসা পানির কারণে ২১ আগস্ট থেকে আকস্মিক বন্যা শুরু হয়। ৩১ আগস্ট পর্যন্ত ৫০ জনের বেশি মৃত্যুর খবর পাওয়া যায় এবং উত্তর-পূর্ব ও দক্ষিণ-পূর্ব বাংলাদেশের ১১টি জেলায় প্রায় ৫৮ লাখ মানুষ ক্ষতিগ্রস্ত হয়। মোট মৃত্যুর সংখ্যা ৭১। এই বন্যায় ৯২ হাজার হেক্টর কৃষিজমি ধ্বংস হয় এবং ক্ষতির পরিমাণ প্রায় ১,১৪৪ কোটি টাকা।</p>
+            </div>
+            <div class="question" data-year="2022">
+                <button>
+                    <span>2022(২০২২)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">2022 year: The 2022 flash floods in Sylhet and Sunamganj districts caused widespread devastation, displacing over 472,000 people and severely damaging homes, schools, and community clinics. Over 1.5 million students faced significant learning loss as more than 3,000 schools remained closed for a month. Agriculture and livestock were heavily affected, with damage estimated at USD 230.8 million, while disruptions to WASH services impacted 4.2 million people. Reports indicated heightened risks of waterborne diseases and violence against women and children in affected areas. Despite humanitarian efforts, resource shortages left 76.5% of the most vulnerable families unsupported in their recovery.</p>
+                <p data-lang="bn" style="display: none;">২০২২ সাল:২০২২ সালের আকস্মিক বন্যায় সিলেট ও সুনামগঞ্জ জেলায় ব্যাপক ধ্বংসযজ্ঞ ঘটে, যেখানে ৪ লক্ষ ৭২ হাজারের বেশি মানুষ বাস্তুচ্যুত হয় এবং ঘরবাড়ি, স্কুল ও কমিউনিটি ক্লিনিক মারাত্মকভাবে ক্ষতিগ্রস্ত হয়। ১.৫ মিলিয়নেরও বেশি শিক্ষার্থী এক মাস ধরে ৩,০০০ এর বেশি স্কুল বন্ধ থাকার কারণে বড় ধরনের শিক্ষার ক্ষতির মুখে পড়ে। কৃষি ও পশুপালনে ২৩.০৮ কোটি মার্কিন ডলার ক্ষতি হয়, এবং ৪.২ মিলিয়ন মানুষ পানি, স্যানিটেশন ও স্বাস্থ্যবিধি (WASH) পরিষেবার ব্যাঘাতে ভুগেছেন। ক্ষতিগ্রস্ত এলাকায় জলবাহিত রোগ এবং নারী ও শিশুর প্রতি সহিংসতার ঝুঁকি বেড়েছে বলে রিপোর্টে উল্লেখ করা হয়েছে। মানবিক প্রচেষ্টা সত্ত্বেও, সম্পদের অভাবে সবচেয়ে ঝুঁকিপূর্ণ ৭৬.৫% পরিবার পুনর্বাসনের জন্য সহায়তা পায়নি।</p> 
+            </div>
+            <div class="question" data-year="2020">
+                <button>
+                    <span>2020(২০২0)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">2020 year:About 1.1 million people were displaced, and almost 100,000 were evacuated to some 1,500 shelters. Almost 1 million tube-wells and more than 100,000 latrines were damaged, 83,000 hectares of paddy fields were affected, and 257 people lost their lives.</p>
+                <p data-lang="bn" style="display: none;">২০২০ সাল:প্রায় ১১ লাখ মানুষ বাস্তুচ্যুত হয় এবং প্রায় ১ লাখ মানুষকে প্রায় ১,৫০০ আশ্রয়কেন্দ্রে সরিয়ে নেওয়া হয়। প্রায় ১০ লাখ নলকূপ এবং ১ লাখেরও বেশি পায়খানা ক্ষতিগ্রস্ত হয়। ৮৩ হাজার হেক্টর ধানের জমি বন্যায় আক্রান্ত হয় এবং ২৫৭ জনের প্রাণহানি ঘটে।</p> 
+            </div>
+            <div class="question" data-year="2017">
+            <button>
+                <span>2017(২০১৭)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">2017 Floods: Unanticipated early heavy rains in April 2017 led to flooding in several parts of Bangladesh, damaging pre-harvested crops. The floods persisted until late August, causing substantial damage to housing, property, and infrastructure. Inundation maps from Sentinel-1 images indicate that flood-affected areas increased from 2.01% in April to 7.01% in August, with croplands being the most impacted. </p>
+            <p data-lang="bn" style="display: none;">২০১৭ সালের বন্যা:২০১৭ সালের এপ্রিল মাসে অপ্রত্যাশিত আগাম ভারী বৃষ্টিপাতের কারণে বাংলাদেশের বিভিন্ন অঞ্চলে বন্যা দেখা দেয়, যা ফসল কাটার আগের শস্যের ব্যাপক ক্ষতি করে। এই বন্যা আগস্টের শেষ পর্যন্ত স্থায়ী হয়, ফলে গৃহ, সম্পদ এবং অবকাঠামোর বড় ধরনের ক্ষতি হয়। সেন্টিনেল-১ স্যাটেলাইটের চিত্র থেকে দেখা যায়, এপ্রিল মাসে বন্যায় আক্রান্ত এলাকার পরিমাণ ছিল ২.০১%, যা আগস্ট মাসে বৃদ্ধি পেয়ে ৭.০১% এ পৌঁছে। কৃষিজমি ছিল সবচেয়ে বেশি ক্ষতিগ্রস্ত।</p>
+            </div>
+            <div class="question" data-year="2015">
+            <button>
+                <span>2015(২০১৫)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en"> 2015 Floods: In early October 2015, heavy rainfall caused rivers in northwestern Bangladesh to overflow, inundating dozens of villages. These floods resulted in numerous deaths and left many people homeless.</p>
+            <p data-lang="bn" style="display: none;">২০১৫ সালের বন্যা:২০১৫ সালের অক্টোবর মাসের শুরুর দিকে ভারী বৃষ্টিপাতের ফলে বাংলাদেশের উত্তর-পশ্চিমাঞ্চলের নদীগুলো উপচে পড়ে এবং বহু গ্রাম প্লাবিত হয়। এই বন্যায় বহু মানুষের মৃত্যু হয় এবং অনেক মানুষ গৃহহীন হয়ে পড়ে।</p> 
+        </div>
+    </section>
+<script>
+
+        const buttons = document.querySelectorAll('button');
+
+        // FAQ Toggle
+        buttons.forEach(button => {
+            if (!button.id) {
+                button.addEventListener('click', () => {
+                    const question = button.parentElement;
+                    const paragraphs = question.querySelectorAll('p');
+                    const icon = button.querySelector('.d-arrow');
+
+                    paragraphs.forEach(p => {
+                        p.classList.toggle('show');
+                    });
+
+                    icon.classList.toggle('rotate');
+                });
+            }
+        });
+
+        // Language Switcher
+        const langButtons = {
+            en: document.getElementById('english'),
+            bn: document.getElementById('bangla')
+        };
+
+        langButtons.en.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'none');
+        });
+
+        langButtons.bn.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'block');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>River Erosion</title>
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            background: url('img/rsz_1new.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .title {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: underline 4px;
+        }
+
+        .language-switcher {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .language-switcher button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .language-switcher button:hover {
+            background-color: #555;
+        }
+
+        .questions-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .question button {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            border: none;
+            outline: none;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .question p {
+            font-size: 22px;
+            max-height: 0;
+            opacity: 0;
+            line-height: 1.5;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .d-arrow {
+            transition: transform 0.5s ease-in;
+            color: #fff;
+        }
+
+        /* Add this class when clicked */
+        .question p.show {
+            max-height: none; /* Allow for larger content */
+            opacity: 1;
+            padding: 15px;
+        }
+
+        .question button .d-arrow.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 class="title">River Erosion</h1>
+
+        <div class="language-switcher">
+            <button id="english">English</button>
+            <button id="bangla">বাংলা</button>
+        </div>
+
+        <div class="questions-container">
+            <div class="question" data-year="2024">
+                <button>
+                    <span>Major Reason & Summary </span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">River erosion in Bangladesh has a profound impact on the environment, economy, and society. Thousands of hectares of arable land are lost annually, disrupting agriculture, while many families are displaced, creating a population of "riverine refugees." Erosion disrupts livelihoods, especially for farmers and fishermen, and damages infrastructure, leading to economic burdens. Socially, it exacerbates poverty, unemployment, and instability, with communities losing ancestral homes. Environmentally, river ecosystems degrade, and increased sedimentation affects navigation and aquatic life.
+                Historically, river erosion has been a natural process, shaping Bangladesh's deltaic landscape.Infrastructure like embankments aimed at flood control sometimes exacerbated the issue. From 2000 onwards, climate change, rising sea levels, and changing monsoon patterns have intensified erosion. Major incidents, like those between 2004-2007 and 2015-2024, caused significant displacement and economic losses.
+                efforts include improved riverbank stabilization and international collaborations, but the challenge remains, with millions affected by ongoing erosion.</p>
+                <p data-lang="bn" style="display: none;">বাংলাদেশে নদী ভাঙন পরিবেশ, অর্থনীতি এবং সমাজে গভীর প্রভাব ফেলেছে। প্রতি বছর হাজার হাজার হেক্টর কৃষিজমি হারানো হচ্ছে, যা কৃষিকে বিঘ্নিত করে, এবং অনেক পরিবার বাস্তুচ্যুত হয়ে "নদীভাঙা উদ্বাস্তু" তৈরি হচ্ছে। ভাঙন কৃষক ও মৎস্যজীবীদের জীবিকা ক্ষতিগ্রস্ত করে এবং অবকাঠামো ক্ষতিগ্রস্ত হওয়ায় অর্থনৈতিক বোঝা বৃদ্ধি পাচ্ছে। সামাজিকভাবে, এটি দারিদ্র্য, বেকারত্ব এবং অস্থিরতা বাড়ায়, যেখানে জনগণ তাদের পুরাতন বাড়ি হারাচ্ছে। পরিবেশগতভাবে, নদী ব্যবস্থার ক্ষতি হচ্ছে এবং অধিক সস্নান নদীর চলাচল এবং জলজ জীবনকে প্রভাবিত করছে।
+                ঐতিহাসিকভাবে, নদী ভাঙন একটি প্রাকৃতিক প্রক্রিয়া হিসেবে বাংলাদেশের ডেল্টা অঞ্চলকে গঠন করেছে।বন্যা নিয়ন্ত্রণে বাঁধ নির্মাণের ফলে কখনও কখনও সমস্যাটি আরও বাড়ে। ২০০০ সালের পর, জলবায়ু পরিবর্তন, সাগরের স্তরের বৃদ্ধি এবং মৌসুমি বৃষ্টিপাতের পরিবর্তন নদী ভাঙনকে আরও তীব্র করেছে। ২০০৪-২০০৭ এবং ২০১৫-২০২৪ সালের বড় বড় নদী ভাঙনে বহু মানুষ বাস্তুচ্যুত হয়েছে এবং ব্যাপক অর্থনৈতিক ক্ষতি হয়েছে।
+                ভাঙন কমানোর জন্য নদীর তীর রক্ষা এবং আন্তর্জাতিক সহযোগিতার মাধ্যমে বিভিন্ন উদ্যোগ নেওয়া হয়েছে, তবে এটি একটি চলমান চ্যালেঞ্জ, যা লক্ষ লক্ষ মানুষের জীবনকে প্রভাবিত করছে।</p>
+            </div>
+            <div class="question" data-year="2023-2024">
+                <button>
+                    <span>2023-2024(২০২২-২০২৪)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">2023–2024:Erosion continued to worsen, particularly along the Padma and Jamuna rivers, displacing thousands in regions like Shariatpur, Chandpur, and Tangail, resulting in significant loss of agricultural land and increased migration to urban areas.</p>
+                <p data-lang="bn" style="display: none;">২০২৩-২০২৪:ভাঙন অব্যাহত থাকে, বিশেষ করে পদ্মা এবং যমুনা নদীতে। শরীয়তপুর, চাঁদপুর, এবং টাঙ্গাইল জেলার এলাকাগুলোতে ব্যাপক নদী ভাঙন ঘটে, যার ফলে কৃষি জমি হারানো, মানুষের বাস্তুচ্যুতি এবং শহরে অভিবাসনের প্রবণতা বাড়ে।</p> 
+            </div>
+            <div class="question" data-year="2020-2021">
+                <button>
+                    <span>2020–2021(২০২0-২০২১)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">2020–2021:Severe erosion was witnessed in Sirajganj, Kurigram, Shariatpur, and Gaibandha, where floodwaters combined with high river flow led to extensive bank collapse, pushing people out of their homes and losing livelihoods.</p>
+                <p data-lang="bn" style="display: none;">২০২০-২০২১:সিরাজগঞ্জ, কুড়িগ্রাম, শরীয়তপুর, এবং গাইবান্ধা-এর মতো অঞ্চলে মারাত্মক নদী ভাঙন ঘটে, যেখানে বন্যা ও নদীর উচ্চ প্রবাহের কারণে ব্যাপক তীর ভাঙন হয়, ফলে মানুষ বাড়ি হারিয়ে জীবিকার সংকটে পড়ে।</p> 
+            </div>
+            <div class="question" data-year="2019">
+            <button>
+                <span>2019(২০১৯)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">2019:The Brahmaputra and Jamuna rivers faced significant erosion, affecting regions like Gaibandha, Kurigram, and Sirajganj. Thousands of people lost their homes and farmlands, exacerbating poverty and displacement.</p>
+            <p data-lang="bn" style="display: none;">২০১৯:ব্রহ্মপুত্র এবং যমুনা নদীতে প্রবল ভাঙন ঘটে, যার ফলে গাইবান্ধা, কুড়িগ্রাম, এবং সিরাজগঞ্জ-এর মতো অঞ্চলে হাজার হাজার মানুষ বাড়ি ও জমি হারায়। এই ভাঙন দারিদ্র্য ও বাস্তুচ্যুতির পরিমাণ বাড়ায়।</p>
+            </div>
+            <div class="question" data-year="2015">
+                <button>
+                    <span>2015(২০১৫)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">2015:Significant erosion occurred along the Jamuna and Ganges rivers, displacing thousands of people, particularly in Sirajganj, Gaibandha, and Shariatpur. The erosion caused severe damage to farmland and infrastructure.</p>
+                <p data-lang="bn" style="display: none;">২০১৫:যমুনা এবং গঙ্গা নদীতে ব্যাপক ভাঙন হয়, বিশেষ করে সিরাজগঞ্জ, গাইবান্ধা, এবং শরীয়তপুর জেলার বিভিন্ন এলাকায়। এতে কৃষি জমি ও অবকাঠামোর ব্যাপক ক্ষতি হয় এবং হাজার হাজার মানুষ বাস্তুচ্যুৎ হয়।</p>
+                </div>
+    </section>
+<script>
+
+        const buttons = document.querySelectorAll('button');
+
+        // FAQ Toggle
+        buttons.forEach(button => {
+            if (!button.id) {
+                button.addEventListener('click', () => {
+                    const question = button.parentElement;
+                    const paragraphs = question.querySelectorAll('p');
+                    const icon = button.querySelector('.d-arrow');
+
+                    paragraphs.forEach(p => {
+                        p.classList.toggle('show');
+                    });
+
+                    icon.classList.toggle('rotate');
+                });
+            }
+        });
+
+        // Language Switcher
+        const langButtons = {
+            en: document.getElementById('english'),
+            bn: document.getElementById('bangla')
+        };
+
+        langButtons.en.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'none');
+        });
+
+        langButtons.bn.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'block');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWatch Khulna</title>
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image:url(assets/img/rsz_1new.jpg);
+            background-blend-mode: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Left Section */
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .search-bar button {
+            background-color: #005792;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 15px;
+        }
+
+        .weather-icon i {
+            font-size: 100px;
+            margin: 20px 0;
+        }
+
+        .left-panel h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .left-panel p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .left-panel h3 {
+            margin-top: 10px;
+        }
+
+        /* Right Section */
+        .right-panel {
+            flex: 2;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .highlight-box {
+            flex: 1 1 calc(33.333% - 10px);
+            background: #90caf9;
+            color: #0d47a1;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .highlight-box i {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        .weekly-forecast {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .day-card {
+            flex: 1;
+            background-color: #bbdefb;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .day-card i {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .day-card h4 {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-panel">
+            <div class="search-bar">
+                <input type="text" id="cityInput" placeholder="Enter city name">
+                <button onclick="fetchWeather()">🔍</button>
+            </div>
+            <div class="current-weather">
+                <div class="weather-icon">
+                    <i id="weather-icon" class="wi wi-na"></i>
+                </div>
+                <h1 id="temperature">--°C</h1>
+                <p>Feels like <span id="feels-like">--</span></p>
+                <p id="weather-description">--</p>
+                <p id="date-time">--</p>
+                <h3 id="city">--</h3>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-panel">
+            <h2>Today's Highlights</h2>
+            <div class="highlights">
+                <div class="highlight-box">
+                    <h3>Humidity</h3>
+                    <img src="assets/img/icon/humidity.png" alt="Humidity">
+                    <p id="humidity">--%</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Wind Speed</h3>
+                    <img src="assets/img/icon/anemometer.png" alt="wind speed">
+                    <p id="wind-speed">-- m/s</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Sunrise</h3>
+                    <img src="assets/img/icon/morning.png" alt="sun rise">
+                    <p id="sunrise">--</span></p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Pressure</h3>
+                    <img src="assets/img/icon/Pressure.png" alt="pressure">
+                    <p id="pressure">-- hPa</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Clouds</h3>
+                    <img src="assets/img/icon/clouds.png" alt="clouds">
+                    <p id="clouds">--</span></p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Sunset</h3>
+                    <img src="assets/img/icon/sunset.png" alt="sunset">
+                    <p id="sunset">--</span></p>
+                </div>
+            </div>
+
+            <h2>This Week</h2>
+            <div class="weekly-forecast" id="weekly-forecast"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = "1e0393a23586d23754bb59dd52e7862f";
+
+const weatherIcons = {
+    "clear sky": "wi-day-sunny",
+    "few clouds": "wi-day-cloudy",
+    "overcast clouds": "wi-cloud",
+    "scattered clouds": "wi-cloud",
+    "broken clouds": "wi-cloudy",
+    "shower rain": "wi-showers",
+    "rain": "wi-rain",
+    "thunderstorm": "wi-thunderstorm",
+    "snow": "wi-snow",
+    "mist": "wi-fog",
+};
+
+async function fetchWeather() {
+    const city = document.getElementById("cityInput").value || "Khulna";
+    try {
+        // Fetch current weather and 5-day forecast
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
+        );
+
+        if (!response.ok) {
+            alert("City not found! Please try again.");
+            return;
+        }
+
+        const data = await response.json();
+        updateCurrentWeather(data);
+        updateWeeklyForecast(data);
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+        alert("Something went wrong. Please try again later.");
+    }
+}
+
+function updateCurrentWeather(data) {
+    const weather = data.list[0];
+    const description = weather.weather[0].description.toLowerCase();
+    const temperature = Math.round(weather.main.temp);
+    const feelsLike = Math.round(weather.main.feels_like);
+    const humidity = weather.main.humidity;
+    const windSpeed = weather.wind.speed;
+    const pressure = weather.main.pressure;
+    const clouds = weather.clouds.all;
+
+    // Update UI elements
+    document.getElementById("temperature").innerText = `${temperature}°C`;
+    document.getElementById("feels-like").innerText = `${feelsLike}°C`;
+    document.getElementById("weather-description").innerText = description;
+    document.getElementById("humidity").innerText = `${humidity}%`;
+    document.getElementById("wind-speed").innerText = `${windSpeed} m/s`;
+    document.getElementById("pressure").innerText = `${pressure} hPa`;
+    document.getElementById("clouds").innerText = `${clouds}%`;
+    // document.getElementById("aqi").innerText = `${aqi}`;
+
+    // Set weather icon
+    const iconClass = weatherIcons[description] || "wi-na";
+    document.getElementById("weather-icon").className = `wi ${iconClass}`;
+
+    // Update city name and current date-time
+    const city = document.getElementById("cityInput").value || "Khulna";
+    document.getElementById("city").innerText = city;
+    document.getElementById("date-time").innerText = new Date().toLocaleString();
+
+    // Sunrise and Sunset (requires a different API endpoint)
+    const sunrise = new Date(data.city.sunrise * 1000).toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+    const sunset = new Date(data.city.sunset * 1000).toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+
+    document.getElementById("sunrise").innerText = sunrise;
+    document.getElementById("sunset").innerText = sunset;
+}
+
+function updateWeeklyForecast(data) {
+    const forecastContainer = document.getElementById("weekly-forecast");
+    forecastContainer.innerHTML = ""; // Clear previous content
+
+    // Filter daily forecasts (e.g., 12:00 PM each day)
+    const dailyForecasts = data.list.filter(forecast => forecast.dt_txt.includes("12:00:00"));
+
+    // Handle no forecast data
+    if (dailyForecasts.length === 0) {
+        forecastContainer.innerHTML = "<p>No weekly forecast data available.</p>";
+        return;
+    }
+
+    // Create forecast cards
+    dailyForecasts.forEach(forecast => {
+        const date = new Date(forecast.dt_txt);
+        const day = date.toLocaleDateString("en-US", { weekday: "long" });
+        const description = forecast.weather[0].description.toLowerCase();
+        const temp = Math.round(forecast.main.temp);
+        const iconClass = weatherIcons[description] || "wi-na";
+
+        const icon = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
+
+        const card = `
+        <div class="day-card">
+            <h4>${new Date(forecast.dt * 1000).toLocaleDateString()}</h4>
+            <img src="${icon}" alt="Weather">
+            <h4>${day}</h4>
+            <i class="wi ${iconClass}"></i>
+            <p>${temp}°C</p>
+           
+            <p>${forecast.weather[0].description}</p>
+            
+            
+        </div>
+                `;
+        forecastContainer.innerHTML += card; // Append card to container
+    });
+}
+
+// Fetch initial weather data for default city
+fetchWeather();
+    </script>
+</body>
+</html>

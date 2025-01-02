@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYCLONE</title>
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            background: url('img/rsz_1new.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .title {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: underline 4px;
+        }
+
+        .language-switcher {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .language-switcher button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .language-switcher button:hover {
+            background-color: #555;
+        }
+
+        .questions-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .question button {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            border: none;
+            outline: none;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .question p {
+            font-size: 22px;
+            max-height: 0;
+            opacity: 0;
+            line-height: 1.5;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+
+        .d-arrow {
+            transition: transform 0.5s ease-in;
+            color: #fff;
+        }
+
+        /* Add this class when clicked */
+        .question p.show {
+            max-height: 500px; /* Allow for larger content */
+            opacity: 1;
+            padding: 15px;
+        }
+
+        .question button .d-arrow.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 class="title">CYCLONE</h1>
+
+        <div class="language-switcher">
+            <button id="english">English</button>
+            <button id="bangla">বাংলা</button>
+        </div>
+
+        <div class="questions-container">
+            <div class="question" data-year="2007">
+                <button>
+                    <span>2007(২০০৭)</span>
+                    <i class="fas fa-chevron-down d-arrow"></i>
+                </button>
+                <p data-lang="en">15 May 2007: Cyclone Akash struck about 115 km south of Chittagong with wind speeds up to 120 km/hour. 14 people were killed and damages amounted to US$982 million.</p>
+                <p data-lang="en">15 November 2007: Cyclone Sidr with wind speeds up to 260 km/hour, made landfall on southern Bangladesh, causing over 3,500 deaths and severe damage.</p>
+                <p data-lang="bn" style="display: none;">১৫ মে ২০০৭: সাইক্লোন আকাশ চট্টগ্রামের দক্ষিণে প্রায় ১১৫ কিমি দূরে আঘাত হানে। ঘণ্টায় ১২০ কিমি বেগে বাতাস। ১৪ জন নিহত হন এবং ক্ষয়ক্ষতির পরিমাণ ৯৮২ মিলিয়ন মার্কিন ডলার।</p>
+                <p data-lang="bn" style="display: none;">১৫ নভেম্বর ২০০৭: সাইক্লোন সিডর ২৬০ কিমি/ঘণ্টা বাতাসের বেগ নিয়ে দক্ষিণ বাংলাদেশে আঘাত হানে, যা ৩,৫০০-এরও বেশি মানুষের প্রাণহানি এবং ব্যাপক ক্ষয়ক্ষতি ঘটায়।</p>
+            </div>
+        <div class="question" data-year="2008">
+            <button>
+                <span>2008(২০০৮)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">27 October 2008: Cyclone Rashmi made landfall on the Bangladesh coast late on 26 October with wind speeds up to 85 km/hour, 15 people were killed and thousands of homes were also damaged.</p>
+            <p data-lang="bn" style="display: none;">২৭ অক্টোবর ২০০৮: সাইক্লোন রশ্মি ২৬ অক্টোবর রাতে বাংলাদেশ উপকূলে আঘাত হানে ৮৫ কিমি/ঘণ্টা বাতাসের বেগ নিয়ে। এতে ১৫ জন নিহত হন এবং হাজার হাজার ঘরবাড়ি ক্ষতিগ্রস্ত হয়।</p>
+        </div>
+        <div class="question">
+            <button>
+                <span>2009(২০০৯)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en"> 21 April 2009: Cyclone Bijli attacked weakly in Bangladesh and not so severe damages were recorded except some houses and crop fields losses.</p>
+            <p data-lang="en">29 May 2009: A severe Cyclone Aila attacked offshore 15 districts of south-western part of Bangladesh with wind speeds up to 120 km/hour; about 150 persons killed, 2 lac houses and 3 lac acres of cultivated land and crops losses.</p>
+            <p data-lang="bn" style="display: none;">২১ এপ্রিল ২০০৯: সাইক্লোন বিজলি দুর্বলভাবে বাংলাদেশে আঘাত হানে এবং কিছু বাড়ি ও ফসলের ক্ষতি ছাড়া উল্লেখযোগ্য কোনো ক্ষয়ক্ষতি হয়নি।</p> 
+            <p data-lang="bn" style="display: none;">২৯ মে ২০০৯: একটি শক্তিশালী সাইক্লোন আইলা দক্ষিণ-পশ্চিম বাংলাদেশের ১৫টি উপকূলীয় জেলায় আঘাত হানে। বাতাসের বেগ ছিল ১২০ কিমি/ঘণ্টা। প্রায় ১৫০ জন নিহত হন, ২ লাখ ঘরবাড়ি এবং ৩ লাখ একর আবাদি জমি ও ফসল ক্ষতিগ্রস্ত হয়।</p>
+        </div>
+        <div class="question">
+            <button>
+                <span>2013(২০১৩)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">17 May 2013: Cyclone Viyaru, formerly known as Cyclonic Storm Mahasen, hit near Chittagong with wind speeds up to 85 km/hour. 17 people died, and nearly 1.3 million were affected across the country. Losses to crops exceeded US$35.3 million.</p>
+            <p data-lang="bn" style="display: none;">১৭ মে ২০১৩: সাইক্লোন ভিয়ারু (পূর্বে সাইক্লোনিক স্টর্ম মহাসেন নামে পরিচিত) চট্টগ্রামের কাছে আঘাত হানে ৮৫ কিমি/ঘণ্টা বাতাসের বেগ নিয়ে। এতে ১৭ জন মারা যান এবং প্রায় ১৩ লাখ মানুষ ক্ষতিগ্রস্ত হন। ফসলের ক্ষতি ৩৫.৩ মিলিয়ন মার্কিন ডলারের বেশি।</p>
+        </div>
+        <div class="question">
+            <button>
+                <span>2016(২০১৬)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">21 May 2016: Cyclone Roanu made landfall near Chittagong killing 26 people in Bangladesh. It has wind speeds up to 100 km/hour. Around 40,000 homesteads and business houses were damaged. Food storage, seasonal crops were damaged. Livestock, including fish and shrimp firms were swept away.</p>
+            <p data-lang="en">20 August 2016: The remnants of Tropical Storm Dianmu affected Bangladesh, no damage or death were reported.</p>
+            <p data-lang="bn" style="display: none;">২১ মে ২০১৬: সাইক্লোন রোয়ানু চট্টগ্রামের কাছে আঘাত হানে। এতে বাংলাদেশে ২৬ জন নিহত হন। বাতাসের গতি ছিল ১০০ কিমি/ঘণ্টা। প্রায় ৪০,০০০ ঘরবাড়ি এবং ব্যবসাপ্রতিষ্ঠান ক্ষতিগ্রস্ত হয়। খাদ্য মজুত, মৌসুমি ফসল এবং গবাদি পশু swept away হয়ে যায়।</p>
+            <p data-lang="bn" style="display: none;">২০ আগস্ট ২০১৬: গ্রীষ্মমন্ডলীয় ঝড় ডায়ানমুর অবশিষ্টাংশ বাংলাদেশের উপর প্রভাব ফেলে, তবে কোনো ক্ষয়ক্ষতি বা প্রাণহানি হয়নি।</p>
+        </div> <div class="question">
+            <button>
+                <span>2017(২০১৭)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">31 May 2017: Cyclone Mora with wind speeds up to 110 km/hour, made landfall near Chittagong. A total of 500,000 people managed to move out of coastal areas before the storm made landfall on 31 May. A multitude of tropical cyclone warnings and watches were issued for much of southern Bangladesh and the districts of Northeast India. Strong winds and storm surge battered buildings and destroyed farmlands across Chittagong, Cox's Bazar, and Rangamati, with at least 20,000 houses damaged in refugee camps for Rohingya Muslims displaced by conflict in neighbouring Myanmar. As of 31 May, eighteen people were reported to be killed across Bangladesh, mostly due to falling trees and drowning.</p>
+            <p data-lang="bn" style="display: none;">৩১ মে ২০১৭: সাইক্লোন মোরা ১১০ কিমি/ঘণ্টা বাতাসের বেগ নিয়ে চট্টগ্রামের কাছে আঘাত হানে। ৩১ মে ঝড়ের আগে উপকূলীয় এলাকা থেকে ৫ লাখ মানুষ সরিয়ে নেওয়া হয়। চট্টগ্রাম, কক্সবাজার এবং রাঙ্গামাটিতে তীব্র ঝড়ো হাওয়া এবং জলোচ্ছ্বাস ভবন ও চাষের জমি ধ্বংস করে দেয়। প্রায় ২০,০০০ বাড়ি রোহিঙ্গা শরণার্থী শিবিরে ক্ষতিগ্রস্ত হয়। বাংলাদেশের বিভিন্ন স্থানে ১৮ জন মারা যান।</p>
+        </div>
+        <div class="question">
+            <button>
+                <span>2019(২০১৯)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">4 May 2019: Cyclone Fani moved into Bangladesh after making landfall in Odisha. It killed 17 people in ten districts of Bangladesh. It destroyed about 63,000 ha (160,000 acres) of farmland in 35 districts of the country, the agricultural loss were at ৳385 million (US$4.6 million). Total damage in Bangladesh were up to ৳5.36 billion (US$63.6 million).</p>
+            <p data-lang="en">9 November 2019: Cyclones Matmo and Bulbul made landfall near West Bengal, and crossed into Bangladesh. It caused severe flooding and storm surge in the country, with approximately 72,000 metric tons of crops being lost, with a total value of Tk 2.6 billion (US$31 million).</p>
+            <p data-lang="bn" style="display: none;">৪ মে ২০১৯: সাইক্লোন ফণী ওডিশায় আঘাত করার পরে বাংলাদেশে প্রবেশ করে। এতে বাংলাদেশে দশটি জেলায় ১৭ জন নিহত হন। প্রায় ৬৩,০০০ হেক্টর (১,৬০,০০০ একর) আবাদি জমি ধ্বংস হয়, যার ক্ষতি ৳৩৮৫ মিলিয়ন (US$৪.৬ মিলিয়ন)। বাংলাদেশের মোট ক্ষতি ছিল ৳৫.৩৬ বিলিয়ন (US$৬৩.৬ মিলিয়ন)।</p>
+            <p data-lang="bn" style="display: none;">৯ নভেম্বর ২০১৯: সাইক্লোন ম্যাটমো এবং বুলবুল পশ্চিমবঙ্গে আঘাত হানে এবং বাংলাদেশে প্রবেশ করে। এতে বাংলাদেশে তীব্র বন্যা ও জলোচ্ছ্বাস হয়। প্রায় ৭২,০০০ মেট্রিক টন ফসল হারায়, যার মোট মূল্য ছিল ২.৬ বিলিয়ন টাকা (US$৩১ মিলিয়ন)।</p>
+            </div>
+        <div class="question">
+            <button>
+                <span>2020(২০২০)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">20 May 2020: Cyclone Amphan moved into Bangladesh after making landfall in nearby West Bengal.</p>
+            <p data-lang="bn" style="display: none;">২০ মে ২০২০: সাইক্লোন আম্পান পশ্চিমবঙ্গে আঘাত করার পরে বাংলাদেশে প্রবেশ করে।</p>
+        </div> <div class="question">
+            <button>
+                <span>2021(২০২১)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">26 May 2021: Cyclone Yaas hit Bangladesh after causing a lot of damages and destructions in India. Before hitting, strong tidal waves damaged many coastal structures, dames and jetties.</p>
+            <p data-lang="bn" style="display: none;"><p>২৬ মে ২০২১: সাইক্লোন ইয়াস ভারতীয় উপকূলে ব্যাপক ক্ষয়ক্ষতি করার পর বাংলাদেশে আঘাত হানে। আঘাতের আগে, শক্তিশালী জলোচ্ছ্বাস অনেক উপকূলীয় কাঠামো, বাঁধ এবং জেটি ধ্বংস করে।</p> 
+        </div> <div class="question">
+            <button>
+                <span>2022(২০২২)</span>
+                <i class="fas fa-chevron-down d-arrow"></i>
+            </button>
+            <p data-lang="en">24 October 2022: Cyclone Sitrang made landfall near Bhola killing 35 people in Bangladesh. It had wind speeds up to 85 km/hour.</p>
+            <p data-lang="bn" style="display: none;">২৪ অক্টোবর ২০২২: সাইক্লোন সিত্রাং ভোলার কাছে আঘাত হানে, এতে বাংলাদেশে ৩৫ জন মারা যান। এর বাতাসের বেগ ছিল ৮৫ কিমি/ঘণ্টা।</p>
+        </div>
+    </div>
+</section>
+<script>
+
+        const buttons = document.querySelectorAll('button');
+
+        // FAQ Toggle
+        buttons.forEach(button => {
+            if (!button.id) {
+                button.addEventListener('click', () => {
+                    const question = button.parentElement;
+                    const paragraphs = question.querySelectorAll('p');
+                    const icon = button.querySelector('.d-arrow');
+
+                    paragraphs.forEach(p => {
+                        p.classList.toggle('show');
+                    });
+
+                    icon.classList.toggle('rotate');
+                });
+            }
+        });
+
+        // Language Switcher
+        const langButtons = {
+            en: document.getElementById('english'),
+            bn: document.getElementById('bangla')
+        };
+
+        langButtons.en.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'none');
+        });
+
+        langButtons.bn.addEventListener('click', () => {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('[data-lang="bn"]').forEach(el => el.style.display = 'block');
+        });
+    </script>
+</body>
+</html>
